@@ -9,6 +9,7 @@ public class CartPage {
 	// Constructor
 	public CartPage(AndroidDriver driver){
 		this.driver = driver;
+		System.out.println(driver);
 	}
 	
 	// Navigate to Checkout page
