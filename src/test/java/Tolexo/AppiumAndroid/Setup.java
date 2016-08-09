@@ -13,10 +13,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class Setup {
 	AndroidDriver driver;
 	
-	 protected void prepareAndroidForAppium() throws MalformedURLException {
+	 protected void prepareAndroidForAppium() throws MalformedURLException, InterruptedException {
 		 File classpathRoot = new File(System.getProperty("user.dir"));
 			File appDir = new File(classpathRoot, "/Apps");
 	        File app = new File(appDir, "tolexo-production-playStoreRelease-2.0.11 (1).apk");
+	        Thread.sleep(3000L);
 	        DesiredCapabilities capabilities = new DesiredCapabilities();
 	        capabilities.setCapability("device","Android");
 

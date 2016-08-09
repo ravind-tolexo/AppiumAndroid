@@ -36,11 +36,12 @@ public class CategoriesListTest extends Setup{
 		objCategoryList.sortFilterVisible();
 	}
 	
-	// TC_03 >> Navigate to Category Page
+	// TC_03 >> Navigate to Product Page
 	@Test(priority=2)
-	public void navigateToCategory() throws InterruptedException{
+	public void navigateToProduct() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
 		Thread.sleep(3000L);
-		objCategoryList.navigateCategory();
+		objCategoryList.navigateToProduct();
+		
 	}
 }

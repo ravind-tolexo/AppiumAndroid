@@ -46,10 +46,11 @@ public class CategoriesListPage {
 		System.out.println("Sort and Filter oprions are present = " +qa);
 	}
 	
-	// Navigate to category page
-	public void navigateCategory(){
+	// Navigate to Product page
+	public ProductPage navigateToProduct(){
 		List<MobileElement> list = driver.findElements(categoryOption);
 		list.get(0).click();
+		return new ProductPage(driver);
 		
 	}
 }

@@ -27,7 +27,7 @@ public class CheckoutTest extends Setup{
 	// Navigate to Thank You Page
 	public void thankYouPage() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
-		objCategoryList.navigateCategory();
+		objCategoryList.navigateToProduct();
 		objProduct.navigateCart();		
 		objCheckout.thankYou();
 		

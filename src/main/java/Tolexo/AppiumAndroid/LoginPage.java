@@ -19,8 +19,9 @@ public class LoginPage {
 					+ "android.support.v7.widget.LinearLayoutCompat[@index='2']");
 	By backArrow = By.xpath("//android.view.View/android.widget.ImageButton[@index='0']");
 	By loginSignUpButton = By
-			.xpath("//android.widget.HorizontalScrollView[@index='1']/android.widget.LinearLayout[@index='0']"
-					+ "/android.widget.TextView[@text='Login']/android.widget.LinearLayout[@index='1']/android.widget.TextView[@text='Sign Up']");
+			.xpath("//android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.LinearLayout[@index='1']/"
+					+ "/android.widget.TextView[@text='Sign Up']");
+					
 	By email = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.FrameLayout/android.widget.LinearLayout[@index='0']"
 			+ "/android.widget.LinearLayout[@index='1']/android.widget.LinearLayout[@text='EMAIL']/android.widget.EditText[@index='0']");
 	By password = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.FrameLayout/android.widget.LinearLayout[@index='0']"
@@ -36,16 +37,16 @@ public class LoginPage {
 	By cartIcon = By.xpath("//android.support.v7.widget.LinearLayoutCompat/android.widget.FrameLayout[@index='1']");
 	By ellipseIcon = By.xpath("//android.support.v7.widget.LinearLayoutCompat/android.widget.ImageView[@index='2']");
 	By googlePlusButton = By.xpath("//android.widget.Button[@index='Login via Google+']");
-	By registerFirstName = By.xpath("//android.support.v4.view.ViewPager/android.support.v4.view.ViewPager/android.widget.LinearLayout[@index='0']"
-			+ "/android.widget.LinearLayout[@index='1']/android.widget.EditText");
-	By registerLastName = By.xpath("//android.support.v4.view.ViewPager/android.support.v4.view.ViewPager/android.widget.LinearLayout[@index='0']"
-			+ "/android.widget.LinearLayout[@index='2']/android.widget.EditText");
-	By registerEmail = By.xpath("//android.support.v4.view.ViewPager/android.support.v4.view.ViewPager/android.widget.LinearLayout[@index='0']"
-			+ "/android.widget.LinearLayout[@index='3']/android.widget.EditText");
-	By registerPassword = By.xpath("//android.support.v4.view.ViewPager/android.support.v4.view.ViewPager/android.widget.LinearLayout[@index='0']"
-			+ "/android.widget.LinearLayout[@index='4']/android.widget.EditText");
-	By registerConfirmPassword = By.xpath("//android.support.v4.view.ViewPager/android.support.v4.view.ViewPager/android.widget.LinearLayout[@index='0']"
-			+ "/android.widget.LinearLayout[@index='5']/android.widget.EditText");
+	By registerFirstName = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout[@index='1']/android.widget.EditText");
+	By registerLastName = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout[@index='2']/android.widget.EditText");
+	By registerEmail = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout[@index='3']/android.widget.EditText");
+	By registerPassword = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout[@index='4']/android.widget.EditText");
+	By registerConfirmPassword = By.xpath("//android.support.v4.view.ViewPager/android.widget.ScrollView/android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout[@index='5']/android.widget.EditText");
 	By registerButton = By.xpath("//android.widget.Button[@text='Register']");
 	
 
@@ -82,6 +83,7 @@ public class LoginPage {
 		WebDriverWait wait1 = new WebDriverWait(driver, 120);
 		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(password)));
 		driver.findElement(password).sendKeys("qwerty");
+		System.out.println("Member successfully login");
 		//driver.hideKeyboard();
 		// tap on login button
 		WebDriverWait wait2 = new WebDriverWait(driver, 90);
@@ -89,6 +91,7 @@ public class LoginPage {
 				.findElement(loginButton)));
 		driver.findElement(loginButton).click();
 		Thread.sleep(3000L);
+		
 		
 	}
 
@@ -100,6 +103,7 @@ public class LoginPage {
 		// scroll till Logout link
 		driver.findElement(logout).click();
 		driver.findElement(finalLogout).click();
+		System.out.println("Member successfully logout");
 	}
 	
 	// Navigate to forgot password
@@ -120,17 +124,19 @@ public class LoginPage {
 		driver.findElement(googlePlusButton).click();
 	}
 		
-	// Register Flow
-	public void registerFlow(){
+	// SignUp Flow
+	public void signUpFlow() throws InterruptedException{
 		WebDriverWait wait = new WebDriverWait(driver,90);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(loginSignUpButton)));
 		driver.findElement(loginSignUpButton).click();
+		Thread.sleep(3000L);
 		driver.findElement(registerFirstName).sendKeys("Ravind");
 		driver.findElement(registerLastName).sendKeys("Nayar");
-		driver.findElement(registerEmail).sendKeys("fgsd@mailinator.com");
+		driver.findElement(registerEmail).sendKeys("ioi@mailinator.com");
 		driver.findElement(registerPassword).sendKeys("qwerty");
 		driver.findElement(registerConfirmPassword).sendKeys("qwerty");
 		driver.findElement(registerButton).click();
+		System.out.println("User successfully registered");
 				
 	}
 	

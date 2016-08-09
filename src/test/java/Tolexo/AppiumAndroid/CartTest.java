@@ -24,17 +24,15 @@ public class CartTest extends Setup{
 		Thread.sleep(5000L);		
 	}
 	
-	// Navigate to Checkout page
+	// TC_01 >> Navigate to Checkout page
 	@Test(priority=0)
-	public CheckoutPage navigateCheckoutPage() throws InterruptedException{
+	public void navigateCheckoutPage() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
-		objCategoryList.navigateCategory();
-		objProduct.navigateCart();
+		objProduct = objCategoryList.navigateToProduct();
+		Thread.sleep(3000L);
+		objCart = objProduct.navigateCart();
 		objCart.navigateCheckout();
-		return new CheckoutPage(driver);
-		
-		
-		
+	
 	}
 
 }

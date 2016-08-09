@@ -12,6 +12,7 @@ public class ProductTest extends Setup{
 	HomePage objHome;
 	CategoriesListPage objCategoryList;
 	ProductPage objProduct;
+	CartPage objCart;
 	
 	
 	@BeforeClass
@@ -26,10 +27,10 @@ public class ProductTest extends Setup{
 	
 	// TC_01 >> Navigate to cart page
 	@Test(priority=0)
-	public CartPage navigateToCart() throws InterruptedException{
+	public void navigateToCart() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
-		objCategoryList.navigateCategory();
+		objProduct = objCategoryList.navigateToProduct();
 		objProduct.navigateCart();
-		return new CartPage(driver);
+		
 	}
 }

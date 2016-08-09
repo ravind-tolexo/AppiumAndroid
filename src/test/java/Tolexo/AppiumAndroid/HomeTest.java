@@ -36,7 +36,16 @@ public class HomeTest extends Setup{
 			FileUtils.copyFile(srcFiler, new File(outputlocation));
 			}
 	
-	
+	// Sprint1 >> TC_03 >> To check hot deals present, clickable and page gets open successfully
+		@Test(priority=0)
+		public void sprint1_HotDeals() throws InterruptedException{
+			objHome.hotDeals();
+			Thread.sleep(3000L);
+			// TC_04 >> To check CATEGORIES label present
+			objHome.categoriesVisible();
+		}
+		
+		
 	// TC_01 >> To check logo on the page
 	//@Test(priority=1)
 	public void logoPresent() throws InterruptedException {
@@ -103,7 +112,7 @@ public class HomeTest extends Setup{
 	
 	// TC_10 >> To check Hot Deals image present and clickable
 	//@Test(priority=10)
-	public void hotDealsPresent(){
+	public void hotDealsPresent() throws InterruptedException{
 		objHome.hotDeals();
 	}
 	
@@ -126,10 +135,11 @@ public class HomeTest extends Setup{
 	}
 	
 	// TC_16 >> Navigate to category List page
-	@Test(priority=16)
+	//@Test(priority=16)
 	public void navigateCategoryListPage() throws InterruptedException{
 		objHome.navigateToCategoryList();
 	}
+	
 	
 	
 	

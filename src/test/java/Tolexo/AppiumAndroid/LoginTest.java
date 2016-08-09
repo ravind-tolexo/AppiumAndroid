@@ -70,14 +70,35 @@ public class LoginTest extends Setup {
 			Thread.sleep(3000L);
 		}
 		
-		// TC_06 >> To make user register 
-		@Test(priority=5)
-		public void userRegister() throws InterruptedException{
+		// TC_06 >> To make user SignUp
+		//@Test(priority=5)
+		public void userSignUp() throws InterruptedException{
 			objLogin = objHome.navigateToLoginPage();
 			Thread.sleep(3000L);
-			objLogin.registerFlow();
+			objLogin.signUpFlow();
 			
 		}
+		
+		// Sprint1 >> TC_01 >> To make user login and logout
+	//	@Test(priority=6)
+		public void sprint1_loginAndlogout() throws InterruptedException{
+			objLogin = objHome.navigateToLoginPage();
+			Thread.sleep(6000L);
+			objLogin.memberLogin();
+			Thread.sleep(6000L);
+			objLogin.tapOnLogout();
+			Thread.sleep(6000L);
+		}
+			
+		// Sprint1 >> TC_02 >> To make user SignUp
+		@Test(priority=7)
+		public void sprint1_userSignUp() throws InterruptedException{
+			objLogin = objHome.navigateToLoginPage();
+			Thread.sleep(6000L);
+			objLogin.signUpFlow();
+					
+		}
+		
 		
 		@AfterClass
 		public void quit(){

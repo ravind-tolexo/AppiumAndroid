@@ -30,14 +30,16 @@ public class HomePage {
 	AndroidDriver<MobileElement> driver;
 
 	String app_package_name = "com.tolexo.android/";
-	By ellipseMenuIcon = By.xpath("//android.widget.ImageView[@index='2']");
-	By loginLink = By.xpath("//android.widget.LinearLayout[@index='0']/android.widget.RelativeLayout/android.widget.TextView[@text='Login / Signup']");
+	By ellipseMenuIcon = By.xpath("//android.widget.LinearLayout/android.view.View/android.support.v7.widget.LinearLayoutCompat/"
+			+ "android.widget.ImageView[@index='2']");
+	By loginLink = By.xpath("//android.widget.FrameLayout/android.widget.ListView/"
+			+ "/android.widget.LinearLayout/android.widget.RelativeLayout[@index='0']/android.widget.TextView[@text='Login / Signup']");
 	
 	By banner = By.xpath("//android.view.View[@index='0']");
 	
 	By logo = By.xpath("//android.widget.TextView[@text='Tolexo']");
 	By toolbar = By.id("com.tolexo.android:id/toolbar");
-	By hamburgerMenu = By.xpath("//android.widget.ImageButton[@index='0' and @content-desc='drawer open']");
+	By hamburgerMenu = By.xpath("//android.view.View/android.widget.ImageButton[@index='0' and @content-desc='drawer open']");
 	By notificationIcon = By.id("com.tolexo.android:id/iv_notification");
 	By cartIcon = By.xpath("//android.widget.ImageView[@index='0']");
 	By searchBar = By.id("com.tolexo.android:id/et_search_view");
@@ -48,7 +50,7 @@ public class HomePage {
 	By avtar = By.className("android.widget.ImageView");
 	By loginSignup = By.xpath("//android.widget.TextView[@text='Login or Signup']");
 	By hotDeals = By.xpath("//android.widget.LinearLayout[@index='1']/android.widget.ImageView[@index='0']");
-	By hotDealsInner = By.xpath("//android.widget.TextView[@text='Hot Deals' and @index='1']");
+	By hotDealsInner = By.xpath("//android.view.View/android.widget.TextView[@text='Hot Deals']");
 	By categories = By.xpath("//android.widget.TextView[@text='C A T E G O R I E S']");
 	By categoriesNames = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
 	By viewAllLink = By.xpath("//android.widget.TextView[@text='View All']");
@@ -82,7 +84,7 @@ public class HomePage {
 	
 	// tap on login link
 	public HomePage tapOnLoginLink(){
-		WebDriverWait wait = new WebDriverWait(driver,90);
+		WebDriverWait wait = new WebDriverWait(driver,120);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(loginLink)));
 		driver.findElement(loginLink).click();
 		return new HomePage(driver);
@@ -252,17 +254,19 @@ public class HomePage {
 	}
 	
 	// Hot Deals present and clickable
-	public void hotDeals(){
-		WebDriverWait wait11 = new WebDriverWait(driver,120);
-		wait11.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
+	public void hotDeals() throws InterruptedException{
+//		WebDriverWait wait11 = new WebDriverWait(driver,120);
+//		wait11.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
+		Thread.sleep(3000L);
 		driver.findElement(hamburgerMenu).click();
 		WebDriverWait wait = new WebDriverWait(driver,1200);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(hotDeals)));
 		driver.findElement(hotDeals).click();
-		WebDriverWait wait2 = new WebDriverWait(driver,120);
-		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(hotDealsInner)));
+//		WebDriverWait wait2 = new WebDriverWait(driver,240);
+//		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(hotDealsInner)));
+		Thread.sleep(6000L);
 		String text = driver.findElement(hotDealsInner).getText();
-		System.out.println("Hot Deals title = " +hotDealsInner);
+		System.out.println("Title of the page = " +text);
 	}
 	
 	// CATEGORIES text present
@@ -273,7 +277,7 @@ public class HomePage {
 		WebDriverWait wait = new WebDriverWait(driver,90);		
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
 		String text = driver.findElement(categories).getText();
-		System.out.println("Categories displaying = " +text);
+		System.out.println("Label displaying = " +text);
 	}
 	
 	// Categories names and attributes present
@@ -309,6 +313,7 @@ public class HomePage {
 	public CategoriesListPage navigateToCategoryList() throws InterruptedException{
 		WebDriverWait wait1 = new WebDriverWait(driver,220);
 		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
+		Thread.sleep(3000L);
 		driver.findElement(hamburgerMenu).click();
 		WebDriverWait wait2 = new WebDriverWait(driver,30);
 		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
@@ -330,7 +335,7 @@ public class HomePage {
 				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
 				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']"))));
 		
-		System.out.println("Name of the category" +driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
+		System.out.println("Name of the category = " +driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
 				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
 				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']")).getText());
 		return new CategoriesListPage(driver);

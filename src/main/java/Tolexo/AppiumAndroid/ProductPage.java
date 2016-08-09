@@ -3,6 +3,8 @@ package Tolexo.AppiumAndroid;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -14,17 +16,21 @@ public class ProductPage {
 	By buyButton = By.xpath("//android.widget.TextView[@text='BUY NOW']");
 	
 	// Constructor
-	public ProductPage(){
+	public ProductPage(AndroidDriver driver){
 		this.driver = driver;
 	}
 	
 	
 	// Navigate to cart page
-	public CartPage navigateCart(){
+	public CartPage navigateCart() throws InterruptedException{
 		driver.scrollTo("Select Size");
 		List<MobileElement> list = driver.findElements(size);
 		list.get(0).click();
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(buyButton)));
+		System.out.println("Buy button visible and clicked");
 		driver.findElement(buyButton).click();
+		Thread.sleep(3000L);
 		return new CartPage(driver);
 		
 	}
