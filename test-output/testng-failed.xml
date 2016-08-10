@@ -5,9 +5,8 @@
     <classes>
       <class name="Tolexo.AppiumAndroid.HomeTest">
         <methods>
-          <include name="categoriesLabel"/>
-          <include name="quit"/>
           <include name="beforeclass"/>
+          <include name="sprint1_HotDeals"/>
         </methods>
       </class> <!-- Tolexo.AppiumAndroid.HomeTest -->
     </classes>

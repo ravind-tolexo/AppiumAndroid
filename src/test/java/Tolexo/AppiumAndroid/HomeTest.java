@@ -3,8 +3,10 @@ package Tolexo.AppiumAndroid;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Collections;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 
 public class HomeTest extends Setup{
@@ -39,11 +42,26 @@ public class HomeTest extends Setup{
 	// Sprint1 >> TC_03 >> To check hot deals present, clickable and page gets open successfully
 		@Test(priority=0)
 		public void sprint1_HotDeals() throws InterruptedException{
-			objHome.hotDeals();
-			Thread.sleep(3000L);
+		//	objHome.hotDeals();
+//			Thread.sleep(3000L);
+//			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
 			// TC_04 >> To check CATEGORIES label present
-			objHome.categoriesVisible();
-		}
+			//objHome.categoriesVisible();
+			Thread.sleep(3000L);
+			// TC_05 >> To check all links displaying in navigation drawer 
+			//objHome.categoriesNamesIcon();
+			// TC_06 >> To check View All link present and after tapping on View All 27 categories with their icons are present
+//			TouchAction a2 = new TouchAction(driver);
+//			a2.tap (673, 381).perform();
+			objHome.allCategoriesNamesPresent();
+			
+			// TC_07 >> To check More link present and tapping on this link remaining options get displayed
+			objHome.moreLink();
+			
+			}
+			
+
+		
 		
 		
 	// TC_01 >> To check logo on the page
@@ -118,19 +136,19 @@ public class HomeTest extends Setup{
 	
 	// TC_11 >> To check CATEGORIES label present
 	//@Test(priority=11)
-	public void categoriesLabelPresent(){
+	public void categoriesLabelPresent() throws InterruptedException{
 		objHome.categoriesVisible();
 	}
 	
 	// TC_12 >> To check 6 categories names are present with icons and arrow icon
 	//@Test(priority=12)
-	public void categoriesNames(){
+	public void categoriesNames() throws InterruptedException{
 		objHome.categoriesNamesIcon();
 	}
 	
 	// TC_13 >> To check View All link present and after tapping on View All 27 categories with their icons are present
 	//@Test(priority=13)
-	public void viewAllCategoriesNames(){
+	public void viewAllCategoriesNames() throws InterruptedException{
 		objHome.allCategoriesNamesPresent();
 	}
 	

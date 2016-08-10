@@ -2,6 +2,7 @@ package Tolexo.AppiumAndroid;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,7 +41,9 @@ public class HomePage {
 	
 	By logo = By.xpath("//android.widget.TextView[@text='Tolexo']");
 	By toolbar = By.id("com.tolexo.android:id/toolbar");
-	By hamburgerMenu = By.xpath("//android.view.View/android.widget.ImageButton[@index='0' and @content-desc='drawer open']");
+	By hamburgerIcon = By.xpath("//android.widget.FrameLayout/android.view.View/android.support.v4.widget.DrawerLayout/"
+			+ "android.widget.LinearLayout/"
+			+ "android.widget.LinearLayout/android.view.View/android.widget.ImageButton[@index='0']");
 	By notificationIcon = By.id("com.tolexo.android:id/iv_notification");
 	By cartIcon = By.xpath("//android.widget.ImageView[@index='0']");
 	By searchBar = By.id("com.tolexo.android:id/et_search_view");
@@ -53,13 +57,35 @@ public class HomePage {
 	By hotDealsInner = By.xpath("//android.view.View/android.widget.TextView[@text='Hot Deals']");
 	By categories = By.xpath("//android.widget.TextView[@text='C A T E G O R I E S']");
 	By categoriesNames = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
-	By viewAllLink = By.xpath("//android.widget.TextView[@text='View All']");
+	By viewAllLink = By.xpath("//android.widget.LinearLayout[@index='9']/android.widget.LinearLayout/android.widget.TextView[@text='View All']");
 	By moreLink = By.xpath("//android.widget.LinearLayout[@index='10']");
+	By backLinkAllCategories = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/"
+			+ "android.widget.ImageView");
+	By moreOptions = By.xpath("//android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
 	
 
 	// Constructor
 	public HomePage(AndroidDriver driver) {
 		this.driver = driver;
+	}
+	
+	// Tapping on More link and display all options
+	public void moreLink() throws InterruptedException{
+		driver.findElement(backLinkAllCategories).click();
+		System.out.println("All CATEGORIES back arrow link tapped");
+		Thread.sleep(6000L);
+		
+		driver.findElement(moreLink).click();
+		System.out.println("More Link tapped");
+		Thread.sleep(3000L);
+		List<MobileElement> list = driver.findElements(moreOptions);
+		System.out.println("Count under more link = " +list.get(0));
+		for(MobileElement asaq : list){
+			System.out.println(list);
+		}
+//		Collections.reverse(list);
+		
+		
 	}
 
 	// Navigate to login page
@@ -112,10 +138,10 @@ public class HomePage {
 		System.out.println("Tolexo logo is present: " +logoPresent);
 	}
 		
-	// HamburgerMenu icon attribute is present or not
+	// hamburgerIcon icon attribute is present or not
 	public void iconPresent(){
-		Boolean hamburgerMenuPresent = driver.findElement(hamburgerMenu).isDisplayed();
-		System.out.println("HamburgerMenuIcon is present: " +hamburgerMenuPresent);
+		Boolean hamburgerIconPresent = driver.findElement(hamburgerIcon).isDisplayed();
+		System.out.println("hamburgerIconIcon is present: " +hamburgerIconPresent);
 	}
 		
 	// Notification icon is present or not
@@ -237,7 +263,7 @@ public class HomePage {
 	
 	// Avtar image present
 	public void avtarImagePresent(){
-		driver.findElement(hamburgerMenu).click();
+		driver.findElement(hamburgerIcon).click();
 		String avtarText = driver.findElement(avtar).getText();
 		System.out.println(avtarText);
 	}
@@ -245,8 +271,8 @@ public class HomePage {
 	// Login or Signup present
 	public void loginSignupPresent(){
 		WebDriverWait wait1 = new WebDriverWait(driver,60);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
-		driver.findElement(hamburgerMenu).click();
+		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
+		driver.findElement(hamburgerIcon).click();
 		WebDriverWait wait = new WebDriverWait(driver,60);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(loginSignup)));
 		String text = driver.findElement(loginSignup).getText();
@@ -255,25 +281,20 @@ public class HomePage {
 	
 	// Hot Deals present and clickable
 	public void hotDeals() throws InterruptedException{
-//		WebDriverWait wait11 = new WebDriverWait(driver,120);
-//		wait11.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
 		Thread.sleep(3000L);
-		driver.findElement(hamburgerMenu).click();
+		driver.findElement(hamburgerIcon).click();
 		WebDriverWait wait = new WebDriverWait(driver,1200);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(hotDeals)));
 		driver.findElement(hotDeals).click();
-//		WebDriverWait wait2 = new WebDriverWait(driver,240);
-//		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(hotDealsInner)));
 		Thread.sleep(6000L);
 		String text = driver.findElement(hotDealsInner).getText();
 		System.out.println("Title of the page = " +text);
 	}
 	
 	// CATEGORIES text present
-	public void categoriesVisible(){
-		WebDriverWait wait1 = new WebDriverWait(driver,90);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
-		driver.findElement(hamburgerMenu).click();
+	public void categoriesVisible() throws InterruptedException{
+		Thread.sleep(3000L);
+		driver.findElement(hamburgerIcon).click();
 		WebDriverWait wait = new WebDriverWait(driver,90);		
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
 		String text = driver.findElement(categories).getText();
@@ -281,40 +302,48 @@ public class HomePage {
 	}
 	
 	// Categories names and attributes present
-	public void categoriesNamesIcon(){
-		WebDriverWait wait1 = new WebDriverWait(driver,90);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
-		driver.findElement(hamburgerMenu).click();
-		WebDriverWait wait = new WebDriverWait(driver,120);		
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
+	public void categoriesNamesIcon() throws InterruptedException{
+		Thread.sleep(6000L);
+		driver.findElement(hamburgerIcon).click();
+		System.out.println("Hamburger Icon clicked");
+//		WebDriverWait wait = new WebDriverWait(driver,120);		
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
+		
 		List<MobileElement> list = driver.findElements(categoriesNames);
 		System.out.println("Categories visible = " +list.size());
 		for(MobileElement azx : list){
-			System.out.println("Categories names = " +azx.getText());
+			System.out.println("Categories and links displaying in navigation drawer are = " +azx.getText());
 		}
 	}
 		
 	// All categories names present
-	public void allCategoriesNamesPresent(){
-		WebDriverWait wait1 = new WebDriverWait(driver,90);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
-		driver.findElement(hamburgerMenu).click();
-		WebDriverWait wait = new WebDriverWait(driver,120);		
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
+	public void allCategoriesNamesPresent() throws InterruptedException{
+//		WebDriverWait wait1 = new WebDriverWait(driver,90);
+//		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
+		Thread.sleep(3000L);
+		driver.findElement(hamburgerIcon).click();
+//		WebDriverWait wait = new WebDriverWait(driver,120);		
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
+		Thread.sleep(3000L);
 		driver.findElement(viewAllLink).click();
+		System.out.println("View All link clicked");
+		Thread.sleep(3000L);
 		List<MobileElement> list = driver.findElements(categoriesNames);
-		System.out.println("Categories visible = " +list.size());
+		System.out.println("Categories count after tapping on View All link = " +list.size());
+		//driver.scrollTo("Bearings");
+		
 		for(MobileElement azx : list){
-			System.out.println("Categories names = " +azx.getText());
+			System.out.println("Categories names after tapping on View All link = " +azx.getText());
 		}
+		
 	}
 	
 	// Navigate to Category List page
 	public CategoriesListPage navigateToCategoryList() throws InterruptedException{
 		WebDriverWait wait1 = new WebDriverWait(driver,220);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerMenu)));
+		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
 		Thread.sleep(3000L);
-		driver.findElement(hamburgerMenu).click();
+		driver.findElement(hamburgerIcon).click();
 		WebDriverWait wait2 = new WebDriverWait(driver,30);
 		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
 		driver.findElement(viewAllLink).click();
