@@ -39,27 +39,28 @@ public class HomeTest extends Setup{
 			FileUtils.copyFile(srcFiler, new File(outputlocation));
 			}
 	
-	// Sprint1 >> TC_03 >> To check hot deals present, clickable and page gets open successfully
+	// 	Sprint1 >> 
+		// TC_03 >> To check hot deals present, clickable and page gets open successfully
 		@Test(priority=0)
 		public void sprint1_HotDeals() throws InterruptedException{
-		//	objHome.hotDeals();
-//			Thread.sleep(3000L);
-//			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
+			objHome.hotDeals();
+			Thread.sleep(3000L);
+			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
+			System.out.println("Hot Deals back arrow tapped");
 			// TC_04 >> To check CATEGORIES label present
 			//objHome.categoriesVisible();
 			Thread.sleep(3000L);
 			// TC_05 >> To check all links displaying in navigation drawer 
-			//objHome.categoriesNamesIcon();
+			objHome.categoriesNamesIcon();
 			// TC_06 >> To check View All link present and after tapping on View All 27 categories with their icons are present
 //			TouchAction a2 = new TouchAction(driver);
 //			a2.tap (673, 381).perform();
+			Thread.sleep(3000L);
 			objHome.allCategoriesNamesPresent();
-			
-			// TC_07 >> To check More link present and tapping on this link remaining options get displayed
+			// TC_07 >> To check More link present and tapping on this link remaining options get displayed +
+			// To check About Us link present and About Us page should get open successfully
 			objHome.moreLink();
-			// TC_08 >> To check About Us link present and About Us page should get open successfully
-			objHome.tapOnAboutUs();
-			
+					
 			}
 			
 

@@ -61,7 +61,10 @@ public class HomePage {
 	By moreLink = By.xpath("//android.widget.LinearLayout[@index='10']");
 	By backLinkAllCategories = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/"
 			+ "android.widget.ImageView");
-	By moreOptions = By.xpath("//android.widget.LinearLayout[@index='11']/android.widget.LinearLayout/android.widget.TextView");
+	By moreOptions = By.xpath("//android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
+	By aboutUsPageInfo = By.xpath("//android.webkit.WebView");
+	By aboutUsPageFooterSupport = By.xpath("//android.widget.LinearLayout[@index='2']/android.widget.TextView[@index='0']");
+	By aboutUsPageFooterCustomerCare = By.xpath("//android.widget.LinearLayout[@index='2']/android.widget.TextView[@index='1']");
 	
 
 	// Constructor
@@ -79,32 +82,45 @@ public class HomePage {
 		Thread.sleep(3000L);
 		List<MobileElement> list = driver.findElements(moreOptions);
 		System.out.println("Count under more link = " +list.size());
-		for(MobileElement asaq : list){
-			System.out.println("Total links displayed after tapping on More link in navigation drawer = " +asaq.getText());
-		}
-//		Collections.reverse(list);
+		MobileElement ele = list.get(8);
+		System.out.println("Link tapped = " +ele.getText());
+		ele.click();
+		Thread.sleep(3000L);
+		MobileElement textinfo = driver.findElement(aboutUsPageInfo);
+		System.out.println("About Us page info = " +textinfo.getText());
+		Thread.sleep(3000L);
+		MobileElement footerinfo = driver.findElement(aboutUsPageFooterSupport);
+		System.out.println("About Us footer info = " +footerinfo.getText());
+		MobileElement footerinfo1 = driver.findElement(aboutUsPageFooterCustomerCare);
+		System.out.println("About Us footer info = " +footerinfo1.getText());
+		
 		
 		
 	}
 	
 	// Tapping on About Us link
-	public void tapOnAboutUs(){
+	public void tapOnAboutUs() throws InterruptedException{
 		//driver.findElement(moreLink).click();
 		List<MobileElement> list = driver.findElements(moreOptions);
 		System.out.println("Total options displaying after tapping on More link = "+list.size());
-		for(MobileElement bcv : list){
-			list.get(0).click();
+		MobileElement ele = list.get(11);
+		ele.click();
+		Thread.sleep(3000L);
+		System.out.println("About Us page text = " +ele.getText());
 		}
-	}
+		
+	
 
 	// Navigate to login page
 	public LoginPage navigateToLoginPage(){
 		WebDriverWait wait = new WebDriverWait(driver,120);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(ellipseMenuIcon)));
 		driver.findElement(ellipseMenuIcon).click();
+		System.out.println("Ellipse Menu icon tapped");
 		WebDriverWait wait1 = new WebDriverWait(driver,240);
 		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(loginLink)));
 		driver.findElement(loginLink).click();
+		System.out.println("Login option tapped");
 		return new LoginPage(driver);
 		
 	}
@@ -290,11 +306,13 @@ public class HomePage {
 	
 	// Hot Deals present and clickable
 	public void hotDeals() throws InterruptedException{
-		Thread.sleep(3000L);
+		Thread.sleep(6000L);
 		driver.findElement(hamburgerIcon).click();
-		WebDriverWait wait = new WebDriverWait(driver,1200);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(hotDeals)));
+//		WebDriverWait wait = new WebDriverWait(driver,1200);
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(hotDeals)));
+		Thread.sleep(6000L);
 		driver.findElement(hotDeals).click();
+		System.out.println("Hot Deals link tapped");
 		Thread.sleep(6000L);
 		String text = driver.findElement(hotDealsInner).getText();
 		System.out.println("Title of the page = " +text);
@@ -329,13 +347,13 @@ public class HomePage {
 	public void allCategoriesNamesPresent() throws InterruptedException{
 //		WebDriverWait wait1 = new WebDriverWait(driver,90);
 //		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
-		Thread.sleep(3000L);
-		driver.findElement(hamburgerIcon).click();
+		Thread.sleep(6000L);
+//		driver.findElement(hamburgerIcon).click();
 //		WebDriverWait wait = new WebDriverWait(driver,120);		
 //		wait.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
-		Thread.sleep(3000L);
+		
 		driver.findElement(viewAllLink).click();
-		System.out.println("View All link clicked");
+		System.out.println("View All link tapped");
 		Thread.sleep(3000L);
 		List<MobileElement> list = driver.findElements(categoriesNames);
 		System.out.println("Categories count after tapping on View All link = " +list.size());

@@ -129,10 +129,11 @@ public class LoginPage {
 		WebDriverWait wait = new WebDriverWait(driver,90);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(loginSignUpButton)));
 		driver.findElement(loginSignUpButton).click();
+		System.out.println("SignUp tab tapped");
 		Thread.sleep(3000L);
 		driver.findElement(registerFirstName).sendKeys("Ravind");
 		driver.findElement(registerLastName).sendKeys("Nayar");
-		driver.findElement(registerEmail).sendKeys("ioi@mailinator.com");
+		driver.findElement(registerEmail).sendKeys("op@mailinator.com");
 		driver.findElement(registerPassword).sendKeys("qwerty");
 		driver.findElement(registerConfirmPassword).sendKeys("qwerty");
 		driver.findElement(registerButton).click();
