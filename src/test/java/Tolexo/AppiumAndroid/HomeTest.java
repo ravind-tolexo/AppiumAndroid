@@ -57,6 +57,8 @@ public class HomeTest extends Setup{
 			
 			// TC_07 >> To check More link present and tapping on this link remaining options get displayed
 			objHome.moreLink();
+			// TC_08 >> To check About Us link present and About Us page should get open successfully
+			objHome.tapOnAboutUs();
 			
 			}
 			

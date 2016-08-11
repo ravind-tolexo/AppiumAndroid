@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="46322" started-at="2016-08-10T10:26:55Z" finished-at="2016-08-10T10:27:41Z">
+  <suite name="Default suite" duration-ms="56001" started-at="2016-08-10T12:54:54Z" finished-at="2016-08-10T12:55:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="46322" started-at="2016-08-10T10:26:55Z" finished-at="2016-08-10T10:27:41Z">
+    <test name="Default test" duration-ms="56001" started-at="2016-08-10T12:54:54Z" finished-at="2016-08-10T12:55:50Z">
       <class name="Tolexo.AppiumAndroid.HomeTest">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="beforeclass" is-config="true" duration-ms="13916" started-at="2016-08-10T15:56:55Z" finished-at="2016-08-10T15:57:09Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="beforeclass" is-config="true" duration-ms="13491" started-at="2016-08-10T18:24:54Z" finished-at="2016-08-10T18:25:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="sprint1_HotDeals()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="sprint1_HotDeals" duration-ms="31802" started-at="2016-08-10T15:57:09Z" finished-at="2016-08-10T15:57:40Z">
+        <test-method status="PASS" signature="sprint1_HotDeals()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="sprint1_HotDeals" duration-ms="41937" started-at="2016-08-10T18:25:08Z" finished-at="2016-08-10T18:25:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sprint1_HotDeals -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="quit" is-config="true" duration-ms="584" started-at="2016-08-10T15:57:40Z" finished-at="2016-08-10T15:57:41Z">
+        <test-method status="PASS" signature="quit()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="quit" is-config="true" duration-ms="558" started-at="2016-08-10T18:25:50Z" finished-at="2016-08-10T18:25:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->

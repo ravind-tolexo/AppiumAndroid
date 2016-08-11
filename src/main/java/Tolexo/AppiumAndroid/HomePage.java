@@ -61,7 +61,7 @@ public class HomePage {
 	By moreLink = By.xpath("//android.widget.LinearLayout[@index='10']");
 	By backLinkAllCategories = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/"
 			+ "android.widget.ImageView");
-	By moreOptions = By.xpath("//android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
+	By moreOptions = By.xpath("//android.widget.LinearLayout[@index='11']/android.widget.LinearLayout/android.widget.TextView");
 	
 
 	// Constructor
@@ -73,19 +73,28 @@ public class HomePage {
 	public void moreLink() throws InterruptedException{
 		driver.findElement(backLinkAllCategories).click();
 		System.out.println("All CATEGORIES back arrow link tapped");
-		Thread.sleep(6000L);
-		
+		Thread.sleep(6000L);		
 		driver.findElement(moreLink).click();
 		System.out.println("More Link tapped");
 		Thread.sleep(3000L);
 		List<MobileElement> list = driver.findElements(moreOptions);
-		System.out.println("Count under more link = " +list.get(0));
+		System.out.println("Count under more link = " +list.size());
 		for(MobileElement asaq : list){
-			System.out.println(list);
+			System.out.println("Total links displayed after tapping on More link in navigation drawer = " +asaq.getText());
 		}
 //		Collections.reverse(list);
 		
 		
+	}
+	
+	// Tapping on About Us link
+	public void tapOnAboutUs(){
+		//driver.findElement(moreLink).click();
+		List<MobileElement> list = driver.findElements(moreOptions);
+		System.out.println("Total options displaying after tapping on More link = "+list.size());
+		for(MobileElement bcv : list){
+			list.get(0).click();
+		}
 	}
 
 	// Navigate to login page
@@ -331,7 +340,8 @@ public class HomePage {
 		List<MobileElement> list = driver.findElements(categoriesNames);
 		System.out.println("Categories count after tapping on View All link = " +list.size());
 		//driver.scrollTo("Bearings");
-		
+		driver.findElement(backLinkAllCategories).click();
+		Thread.sleep(3000L);
 		for(MobileElement azx : list){
 			System.out.println("Categories names after tapping on View All link = " +azx.getText());
 		}
