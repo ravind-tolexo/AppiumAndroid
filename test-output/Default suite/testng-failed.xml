@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Tolexo.AppiumAndroid.HomeTest">
+      <class name="Tolexo.AppiumAndroid.LoginTest">
         <methods>
+          <include name="navigateCheckoutPage"/>
           <include name="quit"/>
-          <include name="beforeclass"/>
-          <include name="sprint1_HotDeals"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- Tolexo.AppiumAndroid.HomeTest -->
+      </class> <!-- Tolexo.AppiumAndroid.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

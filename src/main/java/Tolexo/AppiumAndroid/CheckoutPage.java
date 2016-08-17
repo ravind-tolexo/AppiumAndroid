@@ -24,23 +24,21 @@ public class CheckoutPage {
 	}
 
 	
-	// Navigate to Thankyou page
-	public void thankYou() throws InterruptedException{
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.view.View/android.widget.TextView[@text='Login']"))));
-		objLogin.memberLogin();
-		objCart.navigateCheckout();
-		WebDriverWait wait1 = new WebDriverWait(driver,30);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.FrameLayout/android.widget.LinearLayout"
-				+ "/android.widget.LinearLayout+/android.widget.LinearLayout[@index=1]"
-				+ "/android.widget.TextView[@text='Prepaid and Cash On Delivery are available at your pincode.']"))));
+	// Navigate to Order Success page
+	public void navigateOrderSucess() throws InterruptedException{
+//		WebDriverWait wait = new WebDriverWait(driver,30);
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.view.View/android.widget.TextView[@text='Login']"))));
+//		objLogin.memberLogin();
+//		objCart.navigateCheckout();
+//		WebDriverWait wait1 = new WebDriverWait(driver,30);
+//		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.widget.FrameLayout/android.widget.LinearLayout"
+//				+ "/android.widget.LinearLayout+/android.widget.LinearLayout[@index=1]"
+//				+ "/android.widget.TextView[@text='Prepaid and Cash On Delivery are available at your pincode.']"))));
 		driver.scrollTo("PAY OFFLINE USING NEFT / RTGS / IMPS ");
 		driver.findElement(neft).click();
 		driver.findElement(placeOrder).click();
 		WebDriverWait wait2 = new WebDriverWait(driver,30);
 		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(orderSucess)));
-		
-		
 		
 	}
 }

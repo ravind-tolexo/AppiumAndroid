@@ -3,6 +3,7 @@ package Tolexo.AppiumAndroid;
 import java.net.MalformedURLException;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -12,6 +13,9 @@ public class CheckoutTest extends Setup{
 	CheckoutPage objCheckout;
 	CategoriesListPage objCategoryList;
 	ProductPage objProduct;
+	CartPage objCart;
+	ThankYouPage objThankYou;
+	LoginPage objLogin;
 	
 	
 	
@@ -25,11 +29,16 @@ public class CheckoutTest extends Setup{
 	}
 
 	// Navigate to Thank You Page
+	@Test(priority=0)
 	public void thankYouPage() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
-		objCategoryList.navigateToProduct();
-		objProduct.navigateCart();		
-		objCheckout.thankYou();
+		objProduct = objCategoryList.navigateToProduct();
+		objCart = objProduct.navigateCart();
+		objLogin = objCart.navigateLogin();
+		objCheckout = objLogin.navigateToCheckout();
+		objCheckout.navigateOrderSucess();		
 		
 	}
+
+
 }

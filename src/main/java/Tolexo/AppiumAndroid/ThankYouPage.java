@@ -16,7 +16,7 @@ public class ThankYouPage {
 	}
 	
 	// Navigate to Home Page
-	public void homePage(){
+	public void navigateToHomePage(){
 		driver.findElement(continueShoppingButton).click();
 	}
 }

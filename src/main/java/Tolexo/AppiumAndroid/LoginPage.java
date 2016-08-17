@@ -54,6 +54,22 @@ public class LoginPage {
 	public LoginPage(AndroidDriver driver) {
 		this.driver = driver;
 	}
+	
+	// Navigate to Checkout Page
+	public CheckoutPage navigateToCheckout() throws InterruptedException{
+		driver.findElement(email).sendKeys("ravind.nayar@tolexo.com");
+		driver.findElement(password).sendKeys("qwerty");
+		System.out.println("Member successfully login");
+		//driver.hideKeyboard();
+		// tap on login button
+		WebDriverWait wait2 = new WebDriverWait(driver, 90);
+		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(loginButton)));
+		driver.findElement(loginButton).click();
+		Thread.sleep(3000L);
+		return new CheckoutPage(driver);
+		
+		
+	}
 
 	// Login label and headers present
 	public void labelHeadersPresent() {
@@ -91,6 +107,7 @@ public class LoginPage {
 				.findElement(loginButton)));
 		driver.findElement(loginButton).click();
 		Thread.sleep(3000L);
+		
 		
 		
 	}

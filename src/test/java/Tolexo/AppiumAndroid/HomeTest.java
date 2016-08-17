@@ -48,8 +48,8 @@ public class HomeTest extends Setup{
 			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
 			System.out.println("Hot Deals back arrow tapped");
 			// TC_04 >> To check CATEGORIES label present
-			//objHome.categoriesVisible();
-			Thread.sleep(3000L);
+			objHome.categoriesVisible();
+			Thread.sleep(9000L);
 			// TC_05 >> To check all links displaying in navigation drawer 
 			objHome.categoriesNamesIcon();
 			// TC_06 >> To check View All link present and after tapping on View All 27 categories with their icons are present

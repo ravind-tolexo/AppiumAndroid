@@ -13,6 +13,8 @@ public class CartTest extends Setup{
 	CategoriesListPage objCategoryList;
 	CartPage objCart;
 	ProductPage objProduct;
+	CheckoutPage objCheckout;
+	LoginPage objLogin;
 	
 	
 	@BeforeClass
@@ -24,15 +26,18 @@ public class CartTest extends Setup{
 		Thread.sleep(5000L);		
 	}
 	
-	// TC_01 >> Navigate to Checkout page
+	// TC_01 >> Navigate to Login page
 	@Test(priority=0)
-	public void navigateCheckoutPage() throws InterruptedException{
+	public LoginPage navigateLoginPage() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
 		objProduct = objCategoryList.navigateToProduct();
 		Thread.sleep(3000L);
 		objCart = objProduct.navigateCart();
-		objCart.navigateCheckout();
+		objLogin = objCart.navigateLogin();
+		return new LoginPage(driver);
+		
 	
 	}
+
 
 }

@@ -56,7 +56,7 @@ public class HomePage {
 	By hotDeals = By.xpath("//android.widget.LinearLayout[@index='1']/android.widget.ImageView[@index='0']");
 	By hotDealsInner = By.xpath("//android.view.View/android.widget.TextView[@text='Hot Deals']");
 	By categories = By.xpath("//android.widget.TextView[@text='C A T E G O R I E S']");
-	By categoriesNames = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
+	By categoriesNames = By.xpath("//android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView");
 	By viewAllLink = By.xpath("//android.widget.LinearLayout[@index='9']/android.widget.LinearLayout/android.widget.TextView[@text='View All']");
 	By moreLink = By.xpath("//android.widget.LinearLayout[@index='10']");
 	By backLinkAllCategories = By.xpath("//android.view.View/android.widget.LinearLayout/android.widget.LinearLayout/"
@@ -81,13 +81,17 @@ public class HomePage {
 		System.out.println("More Link tapped");
 		Thread.sleep(3000L);
 		List<MobileElement> list = driver.findElements(moreOptions);
-		System.out.println("Count under more link = " +list.size());
+		System.out.println("Number of options displaying under more link = " +list.size());
+		for(MobileElement qqq : list){
+			System.out.println("Options displaying are = " +qqq.getText());
+		}
 		MobileElement ele = list.get(8);
 		System.out.println("Link tapped = " +ele.getText());
 		ele.click();
+		System.out.println("About Us page opened successfully");
 		Thread.sleep(3000L);
-		MobileElement textinfo = driver.findElement(aboutUsPageInfo);
-		System.out.println("About Us page info = " +textinfo.getText());
+		//MobileElement textinfo = driver.findElement(aboutUsPageInfo);
+		//System.out.println("About Us page info = " +textinfo.getText());
 		Thread.sleep(3000L);
 		MobileElement footerinfo = driver.findElement(aboutUsPageFooterSupport);
 		System.out.println("About Us footer info = " +footerinfo.getText());
@@ -325,23 +329,21 @@ public class HomePage {
 		WebDriverWait wait = new WebDriverWait(driver,90);		
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
 		String text = driver.findElement(categories).getText();
-		System.out.println("Label displaying = " +text);
+		System.out.println("Categories label is displaying as = " +text);
+		Thread.sleep(3000L);
 	}
 	
 	// Categories names and attributes present
 	public void categoriesNamesIcon() throws InterruptedException{
-		Thread.sleep(6000L);
-		driver.findElement(hamburgerIcon).click();
-		System.out.println("Hamburger Icon clicked");
-//		WebDriverWait wait = new WebDriverWait(driver,120);		
-//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(categories)));
-		
+////		Thread.sleep(6000L);
+//		driver.findElement(hamburgerIcon).click();
+//		System.out.println("Hamburger icon tapped");
 		List<MobileElement> list = driver.findElements(categoriesNames);
-		System.out.println("Categories visible = " +list.size());
-		for(MobileElement azx : list){
-			System.out.println("Categories and links displaying in navigation drawer are = " +azx.getText());
+		System.out.println("Number of categories visible in navigation drawer = " +list.size());
+		for(MobileElement qwe : list){
+			System.out.println("Categories names are = " +qwe.getText());
 		}
-	}
+			}
 		
 	// All categories names present
 	public void allCategoriesNamesPresent() throws InterruptedException{
@@ -368,33 +370,38 @@ public class HomePage {
 	
 	// Navigate to Category List page
 	public CategoriesListPage navigateToCategoryList() throws InterruptedException{
-		WebDriverWait wait1 = new WebDriverWait(driver,220);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
+//		WebDriverWait wait1 = new WebDriverWait(driver,220);
+//		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(hamburgerIcon)));
 		Thread.sleep(3000L);
 		driver.findElement(hamburgerIcon).click();
-		WebDriverWait wait2 = new WebDriverWait(driver,30);
-		wait2.until(ExpectedConditions.visibilityOf(driver.findElement(viewAllLink)));
+		System.out.println("Hamburger icon tapped");
+		Thread.sleep(3000L);
 		driver.findElement(viewAllLink).click();
+		System.out.println("View All link tapped");
 		//driver.scrollToExact("Bearings");
 		
 		List<MobileElement> list = driver.findElements(categoriesNames);
-		System.out.println("Size is = " +list.size());
+//		for(MobileElement aza : list){
+//			System.out.println("Name of the category = " +aza.getText());
+//		}		
 		Thread.sleep(3000L);
-		list.get(1).click();
+		list.get(2).click();
+		System.out.println("Category tapped");
 		Thread.sleep(3000L);
 		List<MobileElement> list1 = driver.findElements(By.xpath("//android.widget.LinearLayout"
 				+ "/android.widget.LinearLayout/android.widget.TextView"));
 		Thread.sleep(3000L);
 		list1.get(1).click();
-		Thread.sleep(3000L);
-		WebDriverWait wait3 = new WebDriverWait(driver,240);
-		wait3.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
-				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
-				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']"))));
-		
-		System.out.println("Name of the category = " +driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
-				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
-				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']")).getText());
+		System.out.println("First item in category list is tapped");
+		Thread.sleep(6000L);
+//		WebDriverWait wait3 = new WebDriverWait(driver,240);
+//		wait3.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
+//				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
+//				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']"))));
+//		
+//		System.out.println("Name of the category = " +driver.findElement(By.xpath("//android.view.View/android.support.v4.widget.DrawerLayout"
+//				+ "/android.view.View/android.widget.LinearLayout/android.view.View"
+//				+ "/android.widget.Spinner/android.widget.TextView[@text='Safety Shoes (766)']")).getText());
 		return new CategoriesListPage(driver);
 	}
 		

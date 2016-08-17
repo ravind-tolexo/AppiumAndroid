@@ -17,6 +17,11 @@ public class LoginTest extends Setup {
 	Setup obj = new Setup();
 	HomePage objHome;
 	LoginPage objLogin; 
+	CategoriesListPage objCategoryList;
+	ProductPage objProduct;
+	CartPage objCart;
+	CheckoutPage objCheckout;
+	
 	
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException, InterruptedException{
@@ -26,6 +31,18 @@ public class LoginTest extends Setup {
 		Thread.sleep(5000L);
 		objHome = new HomePage(driver);
 	
+	}
+	
+	// Navigate to checkout page
+	@Test(priority=0)
+	public void navigateCheckoutPage() throws InterruptedException{
+		objCategoryList = objHome.navigateToCategoryList();
+		objProduct = objCategoryList.navigateToProduct();
+		Thread.sleep(3000L);
+		objCart = objProduct.navigateCart();
+		objLogin = objCart.navigateLogin();
+		objCheckout = objLogin.navigateToCheckout();
+				
 	}
 
 		// TC_01 >> To make member login and logout
@@ -91,13 +108,15 @@ public class LoginTest extends Setup {
 		}
 			
 		// Sprint1 >> TC_02 >> To make user SignUp
-		@Test(priority=7)
+		//@Test(priority=7)
 		public void sprint1_userSignUp() throws InterruptedException{
 			objLogin = objHome.navigateToLoginPage();
 			Thread.sleep(6000L);
 			objLogin.signUpFlow();
 					
 		}
+		
+	
 		
 		
 		@AfterClass

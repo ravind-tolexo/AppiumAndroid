@@ -23,12 +23,13 @@ public class ProductPage {
 	
 	// Navigate to cart page
 	public CartPage navigateCart() throws InterruptedException{
-		driver.scrollTo("Select Size");
-		List<MobileElement> list = driver.findElements(size);
-		list.get(0).click();
+		//driver.scrollTo("Select Size");
+		driver.scrollTo("Quantity");
+//		List<MobileElement> list = driver.findElements(size);
+//		list.get(0).click();
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(buyButton)));
-		System.out.println("Buy button visible and clicked");
+		System.out.println("Buy button is visible and tapped");
 		driver.findElement(buyButton).click();
 		Thread.sleep(3000L);
 		return new CartPage(driver);
