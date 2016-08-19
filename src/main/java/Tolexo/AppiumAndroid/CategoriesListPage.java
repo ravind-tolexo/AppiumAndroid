@@ -50,6 +50,7 @@ public class CategoriesListPage {
 	public ProductPage navigateToProduct(){
 		List<MobileElement> list = driver.findElements(categoryOption);
 		list.get(0).click();
+		System.out.println("Navigated to Product page");
 		return new ProductPage(driver);
 		
 	}

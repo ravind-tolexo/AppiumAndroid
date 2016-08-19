@@ -65,7 +65,8 @@ public class HomePage {
 	By aboutUsPageInfo = By.xpath("//android.webkit.WebView");
 	By aboutUsPageFooterSupport = By.xpath("//android.widget.LinearLayout[@index='2']/android.widget.TextView[@index='0']");
 	By aboutUsPageFooterCustomerCare = By.xpath("//android.widget.LinearLayout[@index='2']/android.widget.TextView[@index='1']");
-	
+	By searchTextBox = By.xpath("//android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.LinearLayout/"
+			+ "android.widget.EditText[@text='Search...']");
 
 	// Constructor
 	public HomePage(AndroidDriver driver) {
@@ -405,7 +406,14 @@ public class HomePage {
 		return new CategoriesListPage(driver);
 	}
 		
-	
+	// Navigate to search page
+	public void navigateSearchPage() throws InterruptedException{
+		Thread.sleep(5000L);
+		driver.findElement(searchTextBox).click();
+		System.out.println("Navigated to Search page");
+		
+		
+	}
 	
 	}
 	
