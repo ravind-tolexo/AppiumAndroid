@@ -12,6 +12,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
+
 public class LoginTest extends Setup {
 	AndroidDriver driver;
 	Setup obj = new Setup();

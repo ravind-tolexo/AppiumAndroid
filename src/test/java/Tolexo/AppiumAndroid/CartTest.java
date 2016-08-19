@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CartTest extends Setup{

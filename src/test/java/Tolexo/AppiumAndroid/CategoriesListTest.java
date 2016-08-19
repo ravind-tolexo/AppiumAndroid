@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
+
 public class CategoriesListTest extends Setup{
 	AndroidDriver driver;
 	HomePage objHome;

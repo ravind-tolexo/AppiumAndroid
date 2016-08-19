@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 
 import org.testng.annotations.BeforeClass;
 
+import utils.Setup;
 import io.appium.java_client.android.AndroidDriver;
 
 public class ThankYouTest extends Setup{

@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CheckoutTest extends Setup{
@@ -25,7 +26,8 @@ public class CheckoutTest extends Setup{
 		prepareAndroidForAppium();
 		this.driver = getDriver();
 		objHome = new HomePage(driver);
-		Thread.sleep(5000L);		
+		Thread.sleep(5000L);	
+		
 	}
 
 	// Navigate to Thank You Page
@@ -37,6 +39,7 @@ public class CheckoutTest extends Setup{
 		objLogin = objCart.navigateLogin();
 		objCheckout = objLogin.navigateToCheckout();
 		objCheckout.navigateOrderSucess();		
+		
 		
 	}
 

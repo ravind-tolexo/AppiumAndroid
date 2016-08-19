@@ -32,6 +32,7 @@ public class HomePage {
 	AndroidDriver<MobileElement> driver;
 
 	String app_package_name = "com.tolexo.android/";
+	
 	By ellipseMenuIcon = By.xpath("//android.widget.LinearLayout/android.view.View/android.support.v7.widget.LinearLayoutCompat/"
 			+ "android.widget.ImageView[@index='2']");
 	By loginLink = By.xpath("//android.widget.FrameLayout/android.widget.ListView/"
@@ -361,6 +362,7 @@ public class HomePage {
 		List<MobileElement> list = driver.findElements(categoriesNames);
 		System.out.println("Categories count after tapping on View All link = " +list.size());
 		//driver.scrollTo("Bearings");
+		Thread.sleep(3000L);
 		driver.findElement(backLinkAllCategories).click();
 		Thread.sleep(3000L);
 		for(MobileElement azx : list){
@@ -407,15 +409,22 @@ public class HomePage {
 	}
 		
 	// Navigate to search page
-	public void navigateSearchPage() throws InterruptedException{
+	public SearchPage navigateSearchPage() throws InterruptedException{
 		Thread.sleep(5000L);
 		driver.findElement(searchTextBox).click();
 		System.out.println("Navigated to Search page");
+		return new SearchPage(driver);
 		
-		
-	}
+		}
+	
+	// Tap on back arrow of About Us page
+	public void backArrowAboutUs(){
+		driver.findElement(By.xpath("//android.widget.ImageButton")).click();
+		System.out.println("Back arrow tapped of About Us page");
 	
 	}
+	
+}
 	
 
 

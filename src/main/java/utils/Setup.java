@@ -1,4 +1,4 @@
-package Tolexo.AppiumAndroid;
+package utils;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -30,6 +30,8 @@ public class Setup {
 	        driver =  new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	        capabilities.setCapability("appPackage", "com.fortysevendeg.android.swipelistview");
 	        capabilities.setCapability("appActivity","com.fortysevendeg.android.swipelistview.sample.activities.SwipeListViewExampleActivity");
+	        
+	        capabilities.setCapability("unicodeKeyboard", true);
 	        
 	        System.out.println("App launched successfully");
 	    }

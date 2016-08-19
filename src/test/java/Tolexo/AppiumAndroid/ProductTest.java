@@ -7,6 +7,8 @@ import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
+
 public class ProductTest extends Setup{
 	AndroidDriver driver;
 	HomePage objHome;

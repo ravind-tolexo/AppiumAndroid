@@ -15,12 +15,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import utils.Setup;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 
 public class HomeTest extends Setup{
 	AndroidDriver driver;
 	HomePage objHome;
+	SearchPage objSearch;
 	
 	
 	@BeforeClass
@@ -42,27 +44,53 @@ public class HomeTest extends Setup{
 	// 	Sprint1 >> 
 		// TC_03 >> To check hot deals present, clickable and page gets open successfully
 		@Test(priority=0)
-		public void sprint1_HotDeals() throws InterruptedException{
+		public void hotDeals() throws InterruptedException{
 			objHome.hotDeals();
 			Thread.sleep(3000L);
 			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
 			System.out.println("Hot Deals back arrow tapped");
-			// TC_04 >> To check CATEGORIES label present
+		}
+		
+		// TC_04 >> To check CATEGORIES label present
+		@Test(priority=1)
+		public void categoriesLabel() throws InterruptedException{
 			objHome.categoriesVisible();
 			Thread.sleep(9000L);
-			// TC_05 >> To check all links displaying in navigation drawer 
-			objHome.categoriesNamesIcon();
-			// TC_06 >> To check View All link present and after tapping on View All 27 categories with their icons are present
-//			TouchAction a2 = new TouchAction(driver);
-//			a2.tap (673, 381).perform();
+			
+		}
+			
+		// TC_05 >> To check all links displaying in navigation drawer 
+		@Test(priority=2)
+		public void allLinks() throws InterruptedException{
+			objHome.categoriesNamesIcon();	
+		}
+		
+		// TC_06 >> To check View All link present and after tapping on View All 27 categories with their icons are present
+		@Test(priority=3)
+		public void viewAllCategoriesList() throws InterruptedException{
 			Thread.sleep(3000L);
 			objHome.allCategoriesNamesPresent();
-			// TC_07 >> To check More link present and tapping on this link remaining options get displayed +
-			// To check About Us link present and About Us page should get open successfully
-			objHome.moreLink();
-					
-			}
+		}
+		
 			
+		// TC_07 >> To check More link present and tapping on this link remaining options get displayed +
+		// To check About Us link present and About Us page should get open successfully
+		@Test(priority=4)
+		public void moreLink() throws InterruptedException{
+			objHome.moreLink();	
+		}
+		
+		// TC_08 >> To check with keyword if search is working
+		@Test(priority=5)
+		public void searchWithKeyword() throws InterruptedException{
+			objHome.backArrowAboutUs();
+			objSearch = objHome.navigateSearchPage();
+			objSearch.searchResultPage();
+			
+		}
+		
+			
+					
 
 		
 		

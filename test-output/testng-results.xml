@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25069" started-at="2016-08-17T10:53:16Z" finished-at="2016-08-17T10:53:41Z">
+  <suite name="Default suite" duration-ms="142591" started-at="2016-08-19T09:40:08Z" finished-at="2016-08-19T09:42:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25069" started-at="2016-08-17T10:53:16Z" finished-at="2016-08-17T10:53:41Z">
-      <class name="Tolexo.AppiumAndroid.SearchTest">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="beforeclass" is-config="true" duration-ms="17844" started-at="2016-08-17T16:23:16Z" finished-at="2016-08-17T16:23:34Z">
+    <test name="Default test" duration-ms="142591" started-at="2016-08-19T09:40:08Z" finished-at="2016-08-19T09:42:30Z">
+      <class name="Tolexo.AppiumAndroid.HomeTest">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="beforeclass" is-config="true" duration-ms="14561" started-at="2016-08-19T15:10:08Z" finished-at="2016-08-19T15:10:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="FAIL" signature="searchFunctionality()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="searchFunctionality" duration-ms="7208" started-at="2016-08-17T16:23:34Z" finished-at="2016-08-17T16:23:41Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at Tolexo.AppiumAndroid.SearchTest.searchFunctionality(SearchTest.java:29)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method status="PASS" signature="hotDeals()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="hotDeals" duration-ms="25208" started-at="2016-08-19T15:10:22Z" finished-at="2016-08-19T15:10:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchFunctionality -->
-      </class> <!-- Tolexo.AppiumAndroid.SearchTest -->
+        </test-method> <!-- hotDeals -->
+        <test-method status="PASS" signature="categoriesLabel()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="categoriesLabel" duration-ms="17885" started-at="2016-08-19T15:10:47Z" finished-at="2016-08-19T15:11:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- categoriesLabel -->
+        <test-method status="PASS" signature="allLinks()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="allLinks" duration-ms="2328" started-at="2016-08-19T15:11:05Z" finished-at="2016-08-19T15:11:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- allLinks -->
+        <test-method status="PASS" signature="viewAllCategoriesList()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="viewAllCategoriesList" duration-ms="25857" started-at="2016-08-19T15:11:08Z" finished-at="2016-08-19T15:11:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewAllCategoriesList -->
+        <test-method status="PASS" signature="moreLink()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="moreLink" duration-ms="31035" started-at="2016-08-19T15:11:33Z" finished-at="2016-08-19T15:12:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- moreLink -->
+        <test-method status="PASS" signature="search()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="search" duration-ms="24990" started-at="2016-08-19T15:12:04Z" finished-at="2016-08-19T15:12:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="quit" is-config="true" duration-ms="696" started-at="2016-08-19T15:12:29Z" finished-at="2016-08-19T15:12:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- Tolexo.AppiumAndroid.HomeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
