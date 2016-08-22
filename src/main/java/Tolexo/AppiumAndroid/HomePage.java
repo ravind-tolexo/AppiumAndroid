@@ -424,6 +424,16 @@ public class HomePage {
 	
 	}
 	
+	// Navigate to My Account page
+	public LoginPage navigateMyAccount(){
+		driver.findElement(ellipseMenuIcon).click();
+		System.out.println("Ellipse icon tapped");
+		driver.findElement(loginLink).click();
+		System.out.println("Login link tapped");
+		return new LoginPage(driver);
+		
+	}
+	
 }
 	
 

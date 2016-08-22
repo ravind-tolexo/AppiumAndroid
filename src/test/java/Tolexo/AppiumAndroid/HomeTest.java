@@ -23,6 +23,7 @@ public class HomeTest extends Setup{
 	AndroidDriver driver;
 	HomePage objHome;
 	SearchPage objSearch;
+	LoginPage objLogin;
 	
 	
 	@BeforeClass
@@ -43,7 +44,7 @@ public class HomeTest extends Setup{
 	
 	// 	Sprint1 >> 
 		// TC_03 >> To check hot deals present, clickable and page gets open successfully
-		@Test(priority=0)
+		@Test(priority=10)
 		public void hotDeals() throws InterruptedException{
 			objHome.hotDeals();
 			Thread.sleep(3000L);
@@ -89,7 +90,14 @@ public class HomeTest extends Setup{
 			
 		}
 		
+		// Navigate to My Account page
+		@Test(priority=0)
+		public void navigateMyAccount() throws InterruptedException{
+			objLogin = objHome.navigateMyAccount();
+			Thread.sleep(3000L);
+			objLogin.memberLogin();
 			
+		}
 					
 
 		

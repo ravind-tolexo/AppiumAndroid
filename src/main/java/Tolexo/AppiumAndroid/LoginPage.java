@@ -90,23 +90,31 @@ public class LoginPage {
 	}
 
 	// Member login
-	public void memberLogin() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 120);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(email)));
+	public MyAccountPage memberLogin() throws InterruptedException {
+//		WebDriverWait wait = new WebDriverWait(driver, 120);
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(email)));\
+		Thread.sleep(9000L);
 		driver.findElement(email).sendKeys("ravind.nayar@tolexo.com");
+		System.out.println("Email ID entered");
 		//driver.hideKeyboard();
 		// enter password
-		WebDriverWait wait1 = new WebDriverWait(driver, 120);
-		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(password)));
+		Thread.sleep(3000L);
+//		WebDriverWait wait1 = new WebDriverWait(driver, 120);
+//		wait1.until(ExpectedConditions.visibilityOf(driver.findElement(password)));
 		driver.findElement(password).sendKeys("qwerty");
-		System.out.println("Member successfully login");
+		System.out.println("Password entered");
+		
 		//driver.hideKeyboard();
 		// tap on login button
-		WebDriverWait wait2 = new WebDriverWait(driver, 90);
-		wait2.until(ExpectedConditions.visibilityOf(driver
-				.findElement(loginButton)));
-		driver.findElement(loginButton).click();
+//		WebDriverWait wait2 = new WebDriverWait(driver, 90);
+//		wait2.until(ExpectedConditions.visibilityOf(driver
+//				.findElement(loginButton)));
 		Thread.sleep(3000L);
+		driver.findElement(loginButton).click();
+		System.out.println("Member successfully login");
+		Thread.sleep(3000L);
+		
+		return new MyAccountPage(driver);
 		
 		
 		

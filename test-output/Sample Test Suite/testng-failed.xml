@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Sample Test Suite]">
+  <test name="Method Test Cases(failed)">
+    <classes>
+      <class name="Tolexo.AppiumAndroid.HomeTest">
+        <methods>
+          <include name="quit"/>
+          <include name="beforeclass"/>
+          <include name="navigateMyAccount"/>
+        </methods>
+      </class> <!-- Tolexo.AppiumAndroid.HomeTest -->
+    </classes>
+  </test> <!-- Method Test Cases(failed) -->
+</suite> <!-- Failed suite [Sample Test Suite] -->

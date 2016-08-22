@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="44418" started-at="2016-08-22T05:19:02Z" finished-at="2016-08-22T05:19:46Z">
+  <suite name="Default suite" duration-ms="71353" started-at="2016-08-22T11:51:11Z" finished-at="2016-08-22T11:52:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="44418" started-at="2016-08-22T05:19:02Z" finished-at="2016-08-22T05:19:46Z">
-      <class name="Tolexo.AppiumAndroid.SearchTest">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="beforeclass" is-config="true" duration-ms="17510" started-at="2016-08-22T10:49:02Z" finished-at="2016-08-22T10:49:19Z">
+    <test name="Default test" duration-ms="71353" started-at="2016-08-22T11:51:11Z" finished-at="2016-08-22T11:52:23Z">
+      <class name="Tolexo.AppiumAndroid.MyOrdersTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:Tolexo.AppiumAndroid.MyOrdersTest@6108b2d7]" name="beforeClass" is-config="true" duration-ms="13894" started-at="2016-08-22T17:21:11Z" finished-at="2016-08-22T17:21:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="searchFunctionality()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="searchFunctionality" duration-ms="26893" started-at="2016-08-22T10:49:19Z" finished-at="2016-08-22T10:49:46Z">
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="tabsPresent()[pri:0, instance:Tolexo.AppiumAndroid.MyOrdersTest@6108b2d7]" name="tabsPresent" duration-ms="57436" started-at="2016-08-22T17:21:25Z" finished-at="2016-08-22T17:22:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchFunctionality -->
-      </class> <!-- Tolexo.AppiumAndroid.SearchTest -->
+        </test-method> <!-- tabsPresent -->
+      </class> <!-- Tolexo.AppiumAndroid.MyOrdersTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

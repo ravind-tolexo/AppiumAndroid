@@ -48,7 +48,7 @@ public class LoginTest extends Setup {
 	}
 
 		// TC_01 >> To make member login and logout
-		//@Test(priority=0)
+		@Test(priority=0)
 		public void memberLoginLogout() throws InterruptedException, MalformedURLException{
 			objLogin = objHome.navigateToLoginPage();
 			Thread.sleep(6000L);

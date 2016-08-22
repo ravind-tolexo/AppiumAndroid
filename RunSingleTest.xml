@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Sample Test Suite" verbose="1" >
+  <test name="Method Test Cases" >
+    <classes>
+       <class name="Tolexo.AppiumAndroid.HomeTest">
+        <methods>
+        <include name="navigateMyAccount()" />
+        
+        <exclude name="hotDeals()" />
+        <exclude name="categoriesLabel()" />
+        <exclude name="allLinks()" />
+        <exclude name="viewAllCategoriesList()" />
+        <exclude name="moreLink()" />
+        <exclude name="searchWithKeyword()" />
+        
+        
+      </methods>
+       </class>
+    </classes>
+  </test>
+</suite>
