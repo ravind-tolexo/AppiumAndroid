@@ -1,10 +1,14 @@
 package Tolexo.AppiumAndroid;
 
+import java.awt.Dimension;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeClass;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 
@@ -18,6 +22,7 @@ public class SearchPage {
 			+ "android.view.View/android.support.v7.widget.LinearLayoutCompat/android.support.v7.widget.LinearLayoutCompat/"
 			+ "android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/"
 			+ "android.widget.EditText[@text='Search for products, brands, categories etc.']");
+	
 	
 	// Constructor
 	public SearchPage(AndroidDriver driver){
@@ -42,6 +47,10 @@ public class SearchPage {
 				.getText();
 		System.out.println("Title of the page on the search result page is = "
 				+ text);
+		// Total count of items got searched
+		List<MobileElement> list = driver.findElements(By.xpath("//android.support.v7.widget.RecyclerView/"
+				+ "android.widget.LinearLayout"));
+		System.out.println("Total count of items got searched are = " +list.size());
 	}
 	
 	// Tap on back arrow from search page

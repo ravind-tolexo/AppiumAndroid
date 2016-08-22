@@ -1,45 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="142591" started-at="2016-08-19T09:40:08Z" finished-at="2016-08-19T09:42:30Z">
+  <suite name="Default suite" duration-ms="44418" started-at="2016-08-22T05:19:02Z" finished-at="2016-08-22T05:19:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="142591" started-at="2016-08-19T09:40:08Z" finished-at="2016-08-19T09:42:30Z">
-      <class name="Tolexo.AppiumAndroid.HomeTest">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="beforeclass" is-config="true" duration-ms="14561" started-at="2016-08-19T15:10:08Z" finished-at="2016-08-19T15:10:22Z">
+    <test name="Default test" duration-ms="44418" started-at="2016-08-22T05:19:02Z" finished-at="2016-08-22T05:19:46Z">
+      <class name="Tolexo.AppiumAndroid.SearchTest">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="beforeclass" is-config="true" duration-ms="17510" started-at="2016-08-22T10:49:02Z" finished-at="2016-08-22T10:49:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="hotDeals()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="hotDeals" duration-ms="25208" started-at="2016-08-19T15:10:22Z" finished-at="2016-08-19T15:10:47Z">
+        <test-method status="PASS" signature="searchFunctionality()[pri:0, instance:Tolexo.AppiumAndroid.SearchTest@783e6358]" name="searchFunctionality" duration-ms="26893" started-at="2016-08-22T10:49:19Z" finished-at="2016-08-22T10:49:46Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- hotDeals -->
-        <test-method status="PASS" signature="categoriesLabel()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="categoriesLabel" duration-ms="17885" started-at="2016-08-19T15:10:47Z" finished-at="2016-08-19T15:11:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- categoriesLabel -->
-        <test-method status="PASS" signature="allLinks()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="allLinks" duration-ms="2328" started-at="2016-08-19T15:11:05Z" finished-at="2016-08-19T15:11:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- allLinks -->
-        <test-method status="PASS" signature="viewAllCategoriesList()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="viewAllCategoriesList" duration-ms="25857" started-at="2016-08-19T15:11:08Z" finished-at="2016-08-19T15:11:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewAllCategoriesList -->
-        <test-method status="PASS" signature="moreLink()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="moreLink" duration-ms="31035" started-at="2016-08-19T15:11:33Z" finished-at="2016-08-19T15:12:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- moreLink -->
-        <test-method status="PASS" signature="search()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="search" duration-ms="24990" started-at="2016-08-19T15:12:04Z" finished-at="2016-08-19T15:12:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- search -->
-        <test-method status="PASS" signature="quit()[pri:0, instance:Tolexo.AppiumAndroid.HomeTest@1554909b]" name="quit" is-config="true" duration-ms="696" started-at="2016-08-19T15:12:29Z" finished-at="2016-08-19T15:12:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quit -->
-      </class> <!-- Tolexo.AppiumAndroid.HomeTest -->
+        </test-method> <!-- searchFunctionality -->
+      </class> <!-- Tolexo.AppiumAndroid.SearchTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
