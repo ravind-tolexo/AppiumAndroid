@@ -2,6 +2,8 @@ package Tolexo.AppiumAndroid;
 
 import java.net.MalformedURLException;
 
+import junit.framework.Assert;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,12 +25,21 @@ public class SearchTest extends Setup{
 		Thread.sleep(9000L);		
 	}
 	
-	// Search functionality
-	@Test(priority=0)
+	// Search working functionality
+	//@Test(priority=0)
 	public void searchFunctionality() throws InterruptedException{
 		//objHome.navigateSearchPage();
 		objSearch = objHome.navigateSearchPage();
 		objSearch.searchResultPage();
+		
+	}
+	
+	// No result found on search page
+	@Test(priority=0)
+	public void noResultSearch() throws InterruptedException{
+		objSearch = objHome.navigateSearchPage();
+		objSearch.noResultPage();
+		Assert.assertEquals("No result found", objSearch.getSearchHeader(), "Unable to verify header");
 		
 	}
 }

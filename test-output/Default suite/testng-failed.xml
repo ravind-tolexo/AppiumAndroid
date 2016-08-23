@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Tolexo.AppiumAndroid.MyOrdersTest">
+      <class name="Tolexo.AppiumAndroid.SearchTest">
         <methods>
-          <include name="tabsPresent"/>
-          <include name="beforeClass"/>
+          <include name="beforeclass"/>
+          <include name="noResultSearch"/>
         </methods>
-      </class> <!-- Tolexo.AppiumAndroid.MyOrdersTest -->
+      </class> <!-- Tolexo.AppiumAndroid.SearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

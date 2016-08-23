@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeClass;
 
@@ -29,6 +30,13 @@ public class SearchPage {
 		this.driver = driver;
 	}
 	
+	// get text of the page >> No Result Found
+	public String getSearchHeader() {
+		WebElement text = driver.findElement(By.xpath("//android.widget.FrameLayout[@index='2']/android.widget.LinearLayout/"
+				+ "android.widget.TextView[@text='No result found' and index='0']"));
+		String text1= text.getText();
+		return text1;
+	}
 		
 	// Navigate to Search result page
 	public void searchResultPage() throws InterruptedException{
@@ -58,5 +66,16 @@ public class SearchPage {
 		
 		return new HomePage(driver);
 	}
+	
+	// Navigate to No Result Found page
+	public void noResultPage() throws InterruptedException{
+		Thread.sleep(3000L);
+		driver.findElement(realSearchTextBox).sendKeys("kjasdhjkda");
+		Thread.sleep(3000L);
+		driver.sendKeyEvent(66);
+		System.out.println("Navigated to No Result Found page");
+	}
+	
+	// 
 	
 }

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Collections;
 
+import junit.framework.Assert;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -86,9 +88,13 @@ public class HomeTest extends Setup{
 		public void searchWithKeyword() throws InterruptedException{
 			objHome.backArrowAboutUs();
 			objSearch = objHome.navigateSearchPage();
+			Assert.assertEquals("No result found", objSearch.getSearchHeader(), "Unable to verify header");
+			
 			objSearch.searchResultPage();
 			
 		}
+		
+		
 		
 		// Navigate to My Account page
 		@Test(priority=0)

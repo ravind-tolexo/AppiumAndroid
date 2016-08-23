@@ -39,8 +39,9 @@ public class MyAccountPage {
 	}
 	
 	// Navigate to Wishlist page
-	public void navigateWishlist(){
+	public WishlistPage navigateWishlist(){
 		driver.findElement(wishlist).click();
 		System.out.println("Wishlist option is tapped");
+		return new WishlistPage(driver);
 	}
 }

@@ -36,4 +36,8 @@ public class MyAccountTest extends Setup{
 	}
 	
 	// Navigate to Wishlist page
+	@Test(priority=1)
+	public void navigateWishlist(){
+		
+	}
 }
