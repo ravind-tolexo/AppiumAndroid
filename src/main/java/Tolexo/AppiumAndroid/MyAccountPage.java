@@ -39,9 +39,16 @@ public class MyAccountPage {
 	}
 	
 	// Navigate to Wishlist page
-	public WishlistPage navigateWishlist(){
+	public WishlistPage navigateWishlist() throws InterruptedException{
 		driver.findElement(wishlist).click();
 		System.out.println("Wishlist option is tapped");
+		Thread.sleep(20000);
 		return new WishlistPage(driver);
+	}
+	
+	// Wishlist label present
+	public String labelWishlist(){
+		String text = driver.findElement(By.xpath("//android.view.View/android.widget.TextView[@text='Wishlist']")).getText();
+		return text;
 	}
 }

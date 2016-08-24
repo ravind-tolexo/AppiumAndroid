@@ -2,6 +2,8 @@ package Tolexo.AppiumAndroid;
 
 import java.net.MalformedURLException;
 
+import junit.framework.Assert;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -26,7 +28,7 @@ public class MyAccountTest extends Setup{
 	
 	
 	// Navigate to My Profile page
-	@Test(priority=0)
+	//@Test(priority=0)
 	public void navigateMyProfilePage() throws InterruptedException{
 		objLogin = objHome.navigateMyAccount();
 		objMyAccount = objLogin.memberLogin();
@@ -37,7 +39,10 @@ public class MyAccountTest extends Setup{
 	
 	// Navigate to Wishlist page
 	@Test(priority=1)
-	public void navigateWishlist(){
-		
+	public void navigateWishlist() throws InterruptedException{
+		objLogin = objHome.navigateMyAccount();
+		objMyAccount = objLogin.memberLogin();
+		objMyAccount.navigateWishlist();
+		Assert.assertEquals("Wishlist", objMyAccount.labelWishlist(), "Unable to verify label on the page");
 	}
 }

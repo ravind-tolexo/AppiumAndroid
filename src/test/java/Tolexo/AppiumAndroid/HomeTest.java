@@ -92,6 +92,13 @@ public class HomeTest extends Setup{
 			
 			objSearch.searchResultPage();
 			
+			
+		// TC_09 >> Swipe items horizontally
+		@Test(priority=6)
+		public void swipeItems(){
+			driver.swipe(0, 731, 720, 1132, 60);
+		}
+		
 		}
 		
 		

@@ -3,6 +3,7 @@ package Tolexo.AppiumAndroid;
 import java.net.MalformedURLException;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import utils.Setup;
 import io.appium.java_client.android.AndroidDriver;
@@ -10,6 +11,9 @@ import io.appium.java_client.android.AndroidDriver;
 public class WishlistTest extends Setup{
 	AndroidDriver driver;
 	HomePage objHome;
+	LoginPage objLogin;
+	MyAccountPage objMyAccount;
+	WishlistPage objWishlist;
 	
 	
 	@BeforeClass
@@ -24,8 +28,12 @@ public class WishlistTest extends Setup{
 	
 	
 	// TC_05 >> To check items should get displayed under wishlist page
-	public void optionsWishlistPresent(){
-		
+	@Test(priority=0)
+	public void optionsWishlistPresent() throws InterruptedException{
+		objLogin = objHome.navigateMyAccount();
+		objMyAccount = objLogin.memberLogin();
+		objWishlist = objMyAccount.navigateWishlist();
+		objWishlist.optionsWishlist();
 		
 		
 		// To check header should get present under Wishlist page and it should include back arrow,
