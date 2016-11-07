@@ -68,10 +68,20 @@ public class HomePage {
 	By aboutUsPageFooterCustomerCare = By.xpath("//android.widget.LinearLayout[@index='2']/android.widget.TextView[@index='1']");
 	By searchTextBox = By.xpath("//android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.LinearLayout/"
 			+ "android.widget.EditText[@text='Search...']");
+	By hotDealsBackArrow = By.xpath("//android.view.View/android.widget.ImageButton[@index='0']");
+	By dealsPage = By.xpath("//android.support.v4.view.ViewPager/android.widget.FrameLayout/android.widget.FrameLayout/"
+			+ "android.view.View");
 
 	// Constructor
 	public HomePage(AndroidDriver driver) {
 		this.driver = driver;
+	}
+	
+	// Tap on Hot Deals back arrow 
+	public MobileElement hotDealsBackArrow(){
+		MobileElement ele = driver.findElement(hotDealsBackArrow);
+		ele.click();
+		return ele;
 	}
 	
 	// Tapping on More link and display all options
@@ -378,6 +388,7 @@ public class HomePage {
 		Thread.sleep(3000L);
 		driver.findElement(hamburgerIcon).click();
 		System.out.println("Hamburger icon tapped");
+		
 		Thread.sleep(3000L);
 		driver.findElement(viewAllLink).click();
 		System.out.println("View All link tapped");
@@ -431,6 +442,14 @@ public class HomePage {
 		driver.findElement(loginLink).click();
 		System.out.println("Login link tapped");
 		return new LoginPage(driver);
+		
+	}
+	
+	// Navigate to deals page
+	public void navigateDealsPage(){
+		driver.findElement(dealsPage).click();
+		System.out.println("Deals page tapped");
+		
 		
 	}
 	

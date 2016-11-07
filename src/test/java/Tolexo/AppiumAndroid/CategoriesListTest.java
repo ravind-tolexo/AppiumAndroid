@@ -45,5 +45,8 @@ public class CategoriesListTest extends Setup{
 		Thread.sleep(3000L);
 		objCategoryList.navigateToProduct();
 		
+	
+		
+	// To check Filter working functionality
 	}
 }

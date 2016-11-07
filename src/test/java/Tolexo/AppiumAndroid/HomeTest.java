@@ -18,6 +18,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import utils.Setup;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -50,7 +51,10 @@ public class HomeTest extends Setup{
 		public void hotDeals() throws InterruptedException{
 			objHome.hotDeals();
 			Thread.sleep(3000L);
-			driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
+			//driver.findElement(By.xpath("//android.view.View/android.widget.ImageButton[@index='0']")).click();
+			objHome.hotDealsBackArrow();
+			Assert.assertEquals( "Tolexo" , objHome.hotDealsBackArrow(), "Home page not found");
+			
 			System.out.println("Hot Deals back arrow tapped");
 		}
 		
@@ -91,18 +95,27 @@ public class HomeTest extends Setup{
 			Assert.assertEquals("No result found", objSearch.getSearchHeader(), "Unable to verify header");
 			
 			objSearch.searchResultPage();
+		}
 			
 			
 		// TC_09 >> Swipe items horizontally
-		@Test(priority=6)
-		public void swipeItems(){
-			driver.swipe(0, 731, 720, 1132, 60);
+		@Test(priority=7)
+		public void swipeHorizontal(){
+			
+			driver.manage().window().getSize();
+			}
+		
+		
+		// To check items in first deals page
+		@Test(priority=8)
+		public void itemsInFirstDeal(){
+			
 		}
 		
-		}
 		
 		
 		
+
 		// Navigate to My Account page
 		@Test(priority=0)
 		public void navigateMyAccount() throws InterruptedException{

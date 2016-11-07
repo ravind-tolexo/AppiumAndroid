@@ -29,7 +29,7 @@ public class ProductPage {
 //		list.get(0).click();
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(buyButton)));
-		System.out.println("Buy button is visible and tapped");
+		System.out.println("Buy Now button is visible and tapped");
 		driver.findElement(buyButton).click();
 		Thread.sleep(3000L);
 		return new CartPage(driver);

@@ -2,6 +2,8 @@ package Tolexo.AppiumAndroid;
 
 import java.net.MalformedURLException;
 
+import junit.framework.Assert;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -30,18 +32,36 @@ public class CheckoutTest extends Setup{
 		
 	}
 
-	// Navigate to Thank You Page
-	@Test(priority=0)
-	public void thankYouPage() throws InterruptedException{
+	// NEFT flow and navigate to Thank You Page
+	@Test(priority=0, enabled=false)
+	public void NEFTFlow() throws InterruptedException{
 		objCategoryList = objHome.navigateToCategoryList();
 		objProduct = objCategoryList.navigateToProduct();
 		objCart = objProduct.navigateCart();
 		objLogin = objCart.navigateLogin();
 		objCheckout = objLogin.navigateToCheckout();
-		objCheckout.navigateOrderSucess();		
-		
+		objCheckout = objCart.tapProceedToPay();
+		objThankYou = objCheckout.navigateOrderSucessNEFT();
+		Assert.assertEquals("Order Success", objCheckout.getOrderSuccessText(), "Unable to find Order Success text on the page");
+		objThankYou.navigateToHomePage();
 		
 	}
-
-
+	
+	// COD flow 
+	@Test(priority=1, enabled=false)
+	public void CODFlow() throws InterruptedException{
+		objCategoryList = objHome.navigateToCategoryList();
+		objProduct = objCategoryList.navigateToProduct();
+		objCart = objProduct.navigateCart();
+		objLogin = objCart.navigateLogin();
+		objCheckout = objLogin.navigateToCheckout();
+		objCheckout = objCart.tapProceedToPay();
+		objThankYou = objCheckout.navigateOTPSCreen();;
+		Assert.assertEquals("Order Success", objCheckout.getOrderSuccessText(), "Unable to find Order Success text on the page");
+		objThankYou.navigateToHomePage();
+		
+	}
+		
 }
+
+

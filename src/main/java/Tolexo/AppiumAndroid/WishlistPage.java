@@ -28,6 +28,9 @@ public class WishlistPage {
 		List<MobileElement> list = new ArrayList<MobileElement>();
 		for(int i=0; i<=10; i++){
 			List<MobileElement> list1 = driver.findElements(itemsWishlist);
+			list.addAll(list1);
+			
+			
 		}
 		
 		

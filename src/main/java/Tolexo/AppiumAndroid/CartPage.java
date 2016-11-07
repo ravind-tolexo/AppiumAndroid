@@ -10,8 +10,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class CartPage {
 	AndroidDriver driver;
 	
-	By proceedToPay = By.xpath("//android.widget.FrameLayout[@index='2']/android.widget.LinearLayout/"
-			+ "android.widget.LinearLayout/android.widget.TextView[@text='Proceed to Pay']");
+	By proceedToPay = By.xpath("//android.widget.TextView[@text='Proceed to Pay']");
 	
 
 	// Constructor
@@ -34,11 +33,19 @@ public class CartPage {
 		
 //		System.out.println("gotcha!!");
 		driver.scrollTo("Tax");
-		driver.findElement(By.xpath("//android.widget.FrameLayout[@index='2']/android.widget.TextView[@index='1']"));
+		//driver.findElement(By.xpath("//android.widget.FrameLayout[@index='2']/android.widget.TextView[@index='1']"));
 		
 		driver.findElement(proceedToPay).click();
 		System.out.println("Proceed To Pay button tapped");
 		Thread.sleep(6000L);
 		return new LoginPage(driver);
+	}
+	
+	// Tap on Proceed to Pay button
+	public CheckoutPage tapProceedToPay() throws InterruptedException{
+		driver.findElement(proceedToPay).click();
+		System.out.println("Proceed To Pay button tapped");
+		Thread.sleep(6000L);
+		return new CheckoutPage(driver);
 	}
 }
